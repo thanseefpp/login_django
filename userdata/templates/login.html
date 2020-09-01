@@ -1,0 +1,50 @@
+{% load static %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<html>
+  <head>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+  </head>
+<body id="LoginForm">
+<div class="container">
+<h1 class="form-heading">Login</h1>
+<div class="login-form">
+<div class="main-div">
+    <div class="panel">
+   <h2>Login Screen</h2>
+   <p>Please enter your Username and Password</p>
+   </div>
+    <form id="Login" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="username" placeholder="Username" required>
+
+        </div>
+        <div class="form-group">
+
+            <input type="password" class="form-control" name="password" placeholder="Password" required>
+
+        </div>
+        <div>
+          {% for message in messages %}
+          <h6 style="color: red;">{{message}}</h6>
+        {% endfor %}
+        </div>
+
+        <a href="register" style="text-align: center;margin:20%;padding-top: 10%;">Create New account</a>
+        <button type="submit" style="margin-top: 20px; width: 130px; height: 50px; font-size: medium;" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+     
+</div></div></div>
+
+</body>
+</html>
